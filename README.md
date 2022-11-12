@@ -1,6 +1,6 @@
 # Banner Scripts
 
-**Untested on Windows. How can you make Windows banners anyway?**
+**Warning: Untested on Windows.** How can you make Windows banners anyway?
 
 This repo will contain all my custom scripts for very special and useless banners.
 They're designed to be compact and customizable. Made for laptops.
