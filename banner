@@ -1,0 +1,54 @@
+#!/usr/bin/python
+from shutil import get_terminal_size
+from psutil import sensors_battery
+from datetime import datetime, timedelta
+from colorama import init, Fore as f, Style as s
+from random import choice
+
+a=['A', 'T', 'C', 'G']
+
+init(autoreset=True)
+
+if False:
+ print(f.RED+'red')
+ print(f.GREEN+'green')
+ print(f.YELLOW+'yellow')
+ print(f.BLUE+'blue')
+ print(f.MAGENTA+'magenta')
+ print(f.CYAN+'cyan')
+ print('test')
+ print(f.WHITE+'white')
+
+
+banner="""
+-. .-.   .-. .-.   .-. .-.   .
+┃┃\┃┃┃\ /┃┃┃\┃┃┃\ /┃┃┃\┃┃┃\ /┃
+┃/ \┃┃┃\┃┃┃/ \┃┃┃\┃┃┃/ \┃┃┃\┃┃
+~   `-~ `-`   `-~ `-`   `-~ `-"""
+
+banner=banner.splitlines()
+space=get_terminal_size(0)[0]
+dnaToColor={'A':f.GREEN, 'T':f.BLUE, 'C':f.YELLOW, 'G':f.MAGENTA}
+rev={'A':'T', 'T':'A', 'C':'G', 'G':'C'}
+dna=''.join([choice(a) for i in range(space)])
+
+# print banner
+for k,line in enumerate(banner):
+ # operate on a line from this point
+ i=j=0
+ dna=[rev[i] for i in dna]
+ if line:
+  while i<space:
+   char=line[j]
+   print((dnaToColor[dna[i]] if char=='┃' else f.WHITE)+s.BRIGHT+char, end='')
+   j=j+1 if j<len(line)-1 else 0
+   i+=1
+ print()
+
+# print battery stats
+battery=sensors_battery()
+print((s.BRIGHT+'{:>'+str(space)+'}').format(
+ '{:>20} left'.format(
+  datetime.now().strftime('%d/%m  ░  %H:%M:%S')+'  ░  {:<5.2f}  ░  '.format(battery.percent)+(str(timedelta(seconds=battery.secsleft)) if battery.secsleft>0 else '∞')
+ )
+))
