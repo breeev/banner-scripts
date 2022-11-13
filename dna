@@ -1,4 +1,4 @@
-#!/home/anubis/anaconda3/bin/python
+#!/usr/bin/python
 
 from shutil import get_terminal_size
 from psutil import sensors_battery
