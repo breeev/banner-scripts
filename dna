@@ -1,4 +1,5 @@
-#!/usr/bin/python
+#!/home/anubis/anaconda3/bin/python
+
 from shutil import get_terminal_size
 from psutil import sensors_battery
 from datetime import datetime, timedelta

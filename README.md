@@ -10,3 +10,14 @@ For bash, you can use `bashrc` or `zshrc` for zsh.
 
 For a list of available filenames for both shells, see:
 https://medium.com/@rajsek/zsh-bash-startup-files-loading-order-bashrc-zshrc-etc-e30045652f2e
+
+You can also use the `auto_add_banner.sh` script to use this project easily: 
+- first clone the repo **in your home directory**
+```bash
+git clone https://github.com/breeev/banner-scripts.git && cd banner-scripts
+```
+Give the permissions
+```bash
+chmod +x dna auto_add_banner.sh
+```
+run `./auto_add_banner.sh`
